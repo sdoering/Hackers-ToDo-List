@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>A Hackers ToDo List</title>
+ </head>
+ <body>
+ <h1 style="font-size: 16px; font-weight: bold; text-decoration: underline; margin: 15px 10px 15px 25px;">ToDo-List for Hackers: (Nearly) done with pure bash-commands</h1>
+ <h2 style="font-size: 14px; font-weight: normal; margin: 0px 10px 15px 25px;">How it was done:</h2>
+
+<p>Please note, that this is just a rough (1st) version. I am still relearning my Linux skills and I needed soemthing to play with. </p>
+
+<p>Being fed up with overly web2.0-ish ToDo applications, I thought: "Why not do my own one?" Could not get any worse, but maybe slightly more nerdy.</p>
+
+<p>ToDo, as I call it, was written purely with tools from a "normal" Linux. In this case, I used "Cent OS", as provided by my great hoster "<a href="http://www.uberspace.de" target="_blank" style="text-decoration:none;">Uberspace</a>". </p>
+
+<p>For the html, I used just "<a href="http://en.wikipedia.org/wiki/Vi" style="text-decoration:none;" target="_blank">vi</a>". I really dig st old-school tool and it provides me with the raw power, that only a storm-tested tool could bring to the table. </p>
+
+<p>For adding TODOs i just type: 'todo [parameter #1] "parameter #2"', where parameter #1 is being transfered as an id to the li-element and parameter #2 is the TODO, that is shown as the list-element, that is seen on the page. </p>
+
+<p>For deleting TODOs I type: 'tododel [parameter #1]'</p>
+
+<p>Using my .bashrc-File, I let it translate these commands as follows:<br />
+<ul style="list-style-type:none;">
+<li><strong>todo()</strong> {<br />
+&nbsp;&nbsp;echo "&nbsp;&nbsp;&lt;li id="$1"&gt;"$2"&lt;/li&gt;" &gt;&gt; /var/www/virtual/sdoering/sandbox.moorbekstrasse.de/index.html &amp;&amp; sleep 0.5 &amp;&amp; lynx sandbox.moorbekstrasse.de<br />
+}</li>
+<li><strong>tododel()</strong> {<br />
+&nbsp;&nbsp;sed -i "/$1/d" /var/www/virtual/sdoering/sandbox.moorbekstrasse.de/index.html &amp;&amp; sleep 0.5 &amp;&amp; lynx sandbox.moorbekstrasse.de<br />
+}</li>
+</ul>
+
+<p> I am using the id of the li-tag to identify the line, I want to delete with tododel. Practically I am using it as a parameter for tododel.</p>
+
+<p>I know, that I am very much reinventing the wheel here. But it was just done, to learn more and to have a little bit of fun. </p>
+
+<p><a href="index.html" title="ToDo-List for Hackers">BACK</a></p>
+
+<p style="font-weight:bold;">You can find this as a <a href="https://github.com/sdoering/Hackers-ToDo-List" target="_blank" title="sdoering on github">repository on github</a>.</p>
+
+</body>
+</html>
