@@ -7,9 +7,9 @@ fi
 
 # User specific aliases and functions
 todo() { 
-	echo "  <li id="$1">"$2"</li>" >> /var/www/virtual/sdoering/sandbox.moorbekstrasse.de/todo/_index.html && sleep 0.5 && lynx sandbox.moorbekstrasse.de/todo/_index.html
+	echo "  <li id="$1">"$2"</li>" >> [path to your webdirectory]/todo/index.html && sleep 0.5 && lynx [your website]/toto/index.html
 }
 
 tododel() {
-	sed -i "/$1/d" /var/www/virtual/sdoering/sandbox.moorbekstrasse.de/todo/_index.html && sleep 0.5 && lynx sandbox.moorbekstrasse.de/todo/_index.html
+	sed -i "/$1/d" [path to your webdirectory]/todo/_index.html && sleep 0.5 && lynx [your website]/todo/index.html
 }
